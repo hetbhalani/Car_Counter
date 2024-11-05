@@ -2,5 +2,5 @@ from ultralytics import YOLO
 import cv2
 
 model = YOLO('./Yolo-Weights/yolov8l.pt')
-results = model("sch_bus.jpg", show=True)
+results = model("./imgs/sch_bus.jpg", show=True)
 cv2.waitKey(0)
