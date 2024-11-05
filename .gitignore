@@ -1,1 +1,4 @@
 .venv/
+Yolo-Weights/
+*.weights
+*.pt
