@@ -4,8 +4,8 @@ import cvzone
 import math
 
 cap = cv2.VideoCapture(0)
-cap.set(3,1280)
-cap.set(4,720)
+cap.set(3, 640)  
+cap.set(4, 480)
 
 model = YOLO("./Yolo-Weights/yolov8n.pt")
 
@@ -25,6 +25,7 @@ while True:
             
             conf = math.ceil(box.conf[0]*100)/100
             print(conf)
+            cvzone.putTextRect(img,f'{conf}',(max(0,x1),max(35,y1)))
 
     cv2.imshow("image",img)
     cv2.waitKey(1)
