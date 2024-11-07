@@ -34,14 +34,17 @@ while True:
             # cv2.rectangle(img,(x1,y1), (x2,y2),(0,255,0),3)
             
             w,h = x2-x1, y2-y1
-            cvzone.cornerRect(img,(x1,y1,w,h),l=9)
             
             #Confidence
             conf = math.ceil(box.conf[0]*100)/100
             
             #Class Name
             cls = int(box.cls[0])
-            cvzone.putTextRect(img,f'{classNames[cls]} {conf}',(max(0,x1),max(35,y1)),scale=1.3,thickness=2,offset=5)
+            currentClass = classNames[cls]
+            
+            if currentClass == "car" or currentClass == "truck" or currentClass == "bus" or currentClass == "motorbike" and conf > 0.3:
+                cvzone.putTextRect(img,f'{classNames[cls]} {conf}',(max(0,x1),max(35,y1)),scale=1.3,thickness=2,offset=5)
+                cvzone.cornerRect(img,(x1,y1,w,h),l=9)
 
             
 
