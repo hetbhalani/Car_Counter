@@ -3,9 +3,10 @@ import cv2
 import cvzone
 import math
 
-cap = cv2.VideoCapture(0)
-cap.set(3, 640)  
-cap.set(4, 480)
+cap = cv2.VideoCapture("../imgs/cars.mp4")
+# cap = cv2.VideoCapture(0) #for webcam
+# cap.set(3, 640)  
+# cap.set(4, 480)
 
 model = YOLO("./Yolo-Weights/yolov8n.pt")
 
@@ -42,7 +43,7 @@ while True:
             
             #Class Name
             cls = int(box.cls[0])
-            cvzone.putTextRect(img,f'{classNames[cls]} {conf}',(max(0,x1),max(35,y1)))
+            cvzone.putTextRect(img,f'{classNames[cls]} {conf}',(max(0,x1),max(35,y1)),scale=1.3,thickness=2)
 
             
 
