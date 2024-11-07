@@ -20,7 +20,7 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
               "teddy bear", "hair drier", "toothbrush"
               ]
 
-mask = cv2.imread("./imgs/mask_road.mp4")
+mask = cv2.imread("./imgs/mask-road.png")
 
 while True:
     
@@ -54,5 +54,7 @@ while True:
             
 
     cv2.imshow("image",img)
+    cv2.imshow("imgRegion",imgRegion)
+    
     if cv2.waitKey(1) == 27:
         break
