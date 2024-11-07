@@ -2,6 +2,7 @@ from ultralytics import YOLO
 import cv2
 import cvzone
 import math
+from sort import *
 
 cap = cv2.VideoCapture("./imgs/cars.mp4")
 
@@ -27,7 +28,7 @@ while True:
     success, img = cap.read()
     imgRegion = cv2.bitwise_and(img,mask)
     
-    results = model(img,stream=True)
+    results = model(imgRegion,stream=True)
     for r in results:
         boxes = r.boxes
         for box in boxes:
