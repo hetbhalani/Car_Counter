@@ -41,8 +41,8 @@ while True:
             conf = math.ceil(box.conf[0]*100)/100
             
             #Class Name
-            cls = box.cls[0]
-            cvzone.putTextRect(img,f'{cls} {conf}',(max(0,x1),max(35,y1)))
+            cls = int(box.cls[0])
+            cvzone.putTextRect(img,f'{classNames[cls]} {conf}',(max(0,x1),max(35,y1)))
 
             
 
