@@ -54,7 +54,7 @@ while True:
             
             if currentClass == "car" or currentClass == "truck" or currentClass == "bus" or currentClass == "motorbike" and conf > 0.3:
                 # cvzone.putTextRect(img,f'{classNames[cls]} {conf}',(max(0,x1),max(35,y1)),scale=1.3,thickness=2,offset=5)
-                cvzone.cornerRect(img,(x1,y1,w,h),l=9,rt=5)
+                # cvzone.cornerRect(img,(x1,y1,w,h),l=9,rt=5)
                 currentArray = np.array([x1,y1,x2,y2,conf])
                 detactions = np.vstack((detactions, currentArray))
 
@@ -69,7 +69,8 @@ while True:
         cvzone.cornerRect(img, (x1,y1,w,h), l=9, rt=2, colorR=(255,0,0))
         cvzone.putTextRect(img,f'{int(id)}',(max(0,x1),max(35,y1)),scale=1.3,thickness=2,offset=5)
 
-
+        cx,cy = x1+w//2, y1+h//2
+        cv2.circle(img,(cx,cy),5,(255,0,0),cv2.FILLED)
         
     cv2.imshow("image",img)
     cv2.imshow("imgRegion",imgRegion)
