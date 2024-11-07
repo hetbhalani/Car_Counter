@@ -20,8 +20,13 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
               "teddy bear", "hair drier", "toothbrush"
               ]
 
+mask = cv2.imread("./imgs/mask_road.mp4")
+
 while True:
+    
     success, img = cap.read()
+    imgRegion = cv2.bitwise_and(img,mask)
+    
     results = model(img,stream=True)
     for r in results:
         boxes = r.boxes
