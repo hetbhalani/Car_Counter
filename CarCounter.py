@@ -24,6 +24,7 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
 mask = cv2.imread("./imgs/mask-road.png")
 
 tracker = Sort(max_age=20, min_hits=3, iou_threshold=0.3)
+limit = [400,280,672,280]
 while True:
     
     success, img = cap.read()
@@ -59,12 +60,14 @@ while True:
 
             
     trackerResult = tracker.update(detactions)
+    cv2.line(img,(limit[0],limit[1]),(limit[2],limit[3]),(0,0,255))
     for res in trackerResult:
         x1,y1,x2,y2,id = res
+        x1,y1,x2,y2 = int(x1),int(y1),int(x2),int(y2)
         print(res)
         w,h = x2-x1, y2-y1
         cvzone.cornerRect(img, (x1,y1,w,h), l=9, rt=2, colorR=(255,0,0))
-        cvzone.putTextRect(img,f'{id}',(max(0,x1),max(35,y1)),scale=1.3,thickness=2,offset=5)
+        cvzone.putTextRect(img,f'{int(id)}',(max(0,x1),max(35,y1)),scale=1.3,thickness=2,offset=5)
 
 
         
