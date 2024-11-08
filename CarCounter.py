@@ -74,9 +74,11 @@ while True:
         cx,cy = x1+w//2, y1+h//2
         cv2.circle(img,(cx,cy),5,(255,0,0),cv2.FILLED)
         
-        if limit[0] < cx < limit[2] and limit[1] - 20 < cy < limit[1] + 20:
+        if limit[0] < cx < limit[2] and limit[1] < cy < limit[1] + 30:
             if count.count(id) == 0: #list ma check krse, jo ekey var na hoi to list ma add krse
                 count.append(id)
+                cv2.line(img,(limit[0],limit[1]),(limit[2],limit[3]),(0,255,0))
+
             
     cvzone.putTextRect(img,f'Count = {len(count)}',(50,50),scale=1.3,thickness=2,offset=5)
 
