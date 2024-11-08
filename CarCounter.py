@@ -25,6 +25,8 @@ mask = cv2.imread("./imgs/mask-road.png")
 
 tracker = Sort(max_age=20, min_hits=3, iou_threshold=0.3)
 limit = [400,280,672,280]
+
+count = 0
 while True:
     
     success, img = cap.read()
@@ -71,6 +73,9 @@ while True:
 
         cx,cy = x1+w//2, y1+h//2
         cv2.circle(img,(cx,cy),5,(255,0,0),cv2.FILLED)
+        
+        if limit[0] < cx < limit[2] and limit[1] - 20 < cy < limit[1] + 20:
+            count+=1
         
     cv2.imshow("image",img)
     cv2.imshow("imgRegion",imgRegion)
