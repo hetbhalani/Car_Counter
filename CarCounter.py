@@ -79,7 +79,7 @@ while True:
                 cv2.line(img,(limit[0],limit[1]),(limit[2],limit[3]),(0,255,0))
 
             
-    cvzone.putTextRect(img,f'Count = {len(count)}',(50,50),scale=1.3,thickness=2,offset=5)
+    cvzone.putTextRect(img,f'Count = {len(count)}',(50,50), scale=2)
 
     cv2.imshow("image",img)
     cv2.imshow("imgRegion",imgRegion)
