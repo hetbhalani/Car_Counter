@@ -4,7 +4,7 @@
 
 This is a Python-based project that uses the YOLOv8 object detection model and the SORT (Simple Online and Realtime Tracking) algorithm to count vehicles in a video feed. 🎥
 
-## Screensort
+## Screensort 📸
 
 ![ss of detection](./imgs/detect.jpg)
 
@@ -22,6 +22,14 @@ This is a Python-based project that uses the YOLOv8 object detection model and t
 - Ultralytics YOLO 🤖
 - SORT (Simple Online and Realtime Tracking) 🔍
 - cvzone 🎨
+
+## How it Works 🤖
+
+1. The code loads the YOLOv8 model and initializes the SORT tracker. 🔍
+2. It then processes each frame of the video, detecting vehicles using the YOLOv8 model and vehicle types (cars, trucks, buses, bikes). 🚘
+3. The detected vehicles are then passed to the SORT tracker, which keeps track of individual vehicles across frames. 🔍
+4. The script draws bounding boxes around the detected vehicles, displays the vehicle IDs, and counts the number of unique vehicles that have passed through the linr🔢
+
 
 ## ⚙️ Installation
 
