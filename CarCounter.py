@@ -26,7 +26,7 @@ mask = cv2.imread("./imgs/mask-road.png")
 tracker = Sort(max_age=20, min_hits=3, iou_threshold=0.3)
 limit = [400,280,672,280]
 
-count = 0
+count = []
 while True:
     
     success, img = cap.read()
@@ -75,10 +75,13 @@ while True:
         cv2.circle(img,(cx,cy),5,(255,0,0),cv2.FILLED)
         
         if limit[0] < cx < limit[2] and limit[1] - 20 < cy < limit[1] + 20:
-            count+=1
-        
+            if count.count(id) == 0: #list ma check krse, jo ekey var na hoi to list ma add krse
+                count.append(id)
+            
+    cvzone.putTextRect(img,f'Count = {len(count)}',(50,50),scale=1.3,thickness=2,offset=5)
+
     cv2.imshow("image",img)
     cv2.imshow("imgRegion",imgRegion)
     
-    if cv2.waitKey(0) == 27:
+    if cv2.waitKey(1) == 27:
         break
