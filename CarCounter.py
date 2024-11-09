@@ -21,6 +21,8 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
               "teddy bear", "hair drier", "toothbrush"
               ]
 
+#we only need car, bike, truck and bus for this project
+
 mask = cv2.imread("./imgs/mask-road.png")
 
 tracker = Sort(max_age=20, min_hits=3, iou_threshold=0.3)
